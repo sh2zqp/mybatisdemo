@@ -10,7 +10,6 @@
     <select id="listCategory" resultType="Category">
         select *
         from category_
-        where id = #{id}
     </select>
 
     <insert id="addCategory" parameterType="Category">
@@ -35,10 +34,5 @@
         set name=#{name}
         where id = #{id}
     </update>
-
-    <select id="listCategory" resultType="Category">
-        select *
-        from category_
-    </select>
 
 </mapper>
