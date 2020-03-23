@@ -1,6 +1,7 @@
 package com.sh2zqp.mybatis;
 
 import com.sh2zqp.pojo.Category;
+import com.sh2zqp.pojo.Product;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -41,6 +42,8 @@ public class MybatisTest {
 //            c.setName("修改了的Category名稱");
 //            sqlSession.update("updateCategory",c);
 
+            //            listAll(sqlSession);
+
             // 模糊查询
 //            List<Category> cs = sqlSession.selectList("listCategoryByName","了的");
 //            for (Category c : cs) {
@@ -48,15 +51,23 @@ public class MybatisTest {
 //            }
 
             // 多条件查询
-            Map<String,Object> params = new HashMap<String, Object>();
-            params.put("id", 1);
-            params.put("name", "cat");
-            List<Category> cs = sqlSession.selectList("listCategoryByIdAndName",params);
+//            Map<String,Object> params = new HashMap<String, Object>();
+//            params.put("id", 1);
+//            params.put("name", "cat");
+//            List<Category> cs = sqlSession.selectList("listCategoryByIdAndName",params);
+//            for (Category c : cs) {
+//                System.out.println(c);
+//            }
+
+            // 一对多查询， 分类对应产品
+            List<Category> cs = sqlSession.selectList("listCategory");
             for (Category c : cs) {
                 System.out.println(c);
+                List<Product> ps = c.getProducts();
+                for (Product p : ps) {
+                    System.out.println("\t"+p);
+                }
             }
-
-//            listAll(sqlSession);
 
             sqlSession.commit();
         } finally {
