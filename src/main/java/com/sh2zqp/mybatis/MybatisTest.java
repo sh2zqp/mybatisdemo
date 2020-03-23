@@ -60,13 +60,19 @@ public class MybatisTest {
 //            }
 
             // 一对多查询， 分类对应产品
-            List<Category> cs = sqlSession.selectList("listCategory");
-            for (Category c : cs) {
-                System.out.println(c);
-                List<Product> ps = c.getProducts();
-                for (Product p : ps) {
-                    System.out.println("\t"+p);
-                }
+//            List<Category> cs = sqlSession.selectList("listCategory");
+//            for (Category c : cs) {
+//                System.out.println(c);
+//                List<Product> ps = c.getProducts();
+//                for (Product p : ps) {
+//                    System.out.println("\t"+p);
+//                }
+//            }
+
+            // 多对一查询，产品对应分类
+            List<Product> ps = sqlSession.selectList("listProduct");
+            for (Product p : ps) {
+                System.out.println(p+" 对应的分类是 \t "+ p.getCategory());
             }
 
             sqlSession.commit();
