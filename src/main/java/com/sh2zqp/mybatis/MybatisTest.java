@@ -7,7 +7,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MybatisTest {
     public static void main(String[] args) throws Exception {
@@ -35,11 +37,26 @@ public class MybatisTest {
 //            Category c= sqlSession.selectOne("getCategory",3);
 
             // update
-            Category c= sqlSession.selectOne("getCategory",3);
-            c.setName("修改了的Category名稱");
-            sqlSession.update("updateCategory",c);
+//            Category c= sqlSession.selectOne("getCategory",3);
+//            c.setName("修改了的Category名稱");
+//            sqlSession.update("updateCategory",c);
 
-            listAll(sqlSession);
+            // 模糊查询
+//            List<Category> cs = sqlSession.selectList("listCategoryByName","了的");
+//            for (Category c : cs) {
+//                System.out.println(c.getName());
+//            }
+
+            // 多条件查询
+            Map<String,Object> params = new HashMap<String, Object>();
+            params.put("id", 1);
+            params.put("name", "cat");
+            List<Category> cs = sqlSession.selectList("listCategoryByIdAndName",params);
+            for (Category c : cs) {
+                System.out.println(c);
+            }
+
+//            listAll(sqlSession);
 
             sqlSession.commit();
         } finally {
