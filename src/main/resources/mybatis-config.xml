@@ -34,6 +34,8 @@
     <mappers>
         <mapper resource="mappers/Category.xml" />
         <mapper resource="mappers/Product.xml"/>
+        <mapper resource="mappers/Order.xml"/>
+        <mapper resource="mappers/OrderItem.xml"/>
     </mappers>
 
 </configuration>

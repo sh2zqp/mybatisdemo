@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="mysql57" uuid="2a777788-63d4-43c0-a74f-292cbb496aae">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/how2java</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="@localhost" uuid="b69ccd49-c0b7-4399-88d6-ca7d867c3502">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
